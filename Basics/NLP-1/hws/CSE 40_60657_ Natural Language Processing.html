@@ -1,0 +1,103 @@
+
+<!-- saved from url=(0055)https://www3.nd.edu/~dchiang/teaching/nlp/2015/hw1.html -->
+<html class="gr__www3_nd_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>CSE 40/60657: Natural Language Processing</title>
+
+<link href="./CSE 40_60657_ Natural Language Processing_files/css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./CSE 40_60657_ Natural Language Processing_files/main.css" type="text/css">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$']]}
+});
+</script>
+<script type="text/javascript" src="./CSE 40_60657_ Natural Language Processing_files/MathJax.js">
+</script>
+
+<style type="text/css">
+li { margin: 20px 0; } 
+img.display { display: block; margin: 20px auto; }
+table { margin: 3ex 0 3ex 3ex; }
+ol > li > ol { list-style-type: lower-alpha; }
+.rubric { background: #993333; color: white; padding: 1px 2px; margin: 0 3px; font-size: 10px; vertical-align: super;}
+</style>
+
+</head>
+
+<body data-gr-c-s-loaded="true">
+<div id="menu">
+<div class="phonebuttons">
+<div class="phonebutton"><div class="letter">MNO</div><div class="number">6</div></div><div class="phonebutton"><div class="letter">JKL</div><div class="number">5</div></div><div class="phonebutton"><div class="letter">PRS</div><div class="number">7</div></div>
+</div>
+<ul>
+<li>
+<a href="https://www3.nd.edu/~dchiang/teaching/nlp/2015/index.html">← Main page</a>
+</li>
+</ul>
+</div>
+
+<div id="main">
+<h2 class="superhead">CSE 40/60657: Natural Language Processing</h2>
+<h1>Homework 1</h1>
+<dl class="info">
+<dt>Due</dt> <dd>2014/01/27 11:55 pm</dd>
+<dt>Points</dt> <dd>30</dd>
+</dl>
+
+<p>In this assignment, you will build various text classification models and experiment with them on a corpus of positive and negative movie reviews (<a href="http://www.cs.cornell.edu/people/pabo/movie-review-data/">Pang and Lee, sentence polarity dataset v1.0</a>).</p>
+
+<p>Download the Homework 1 data from Sakai. It contains the following files:
+<table>
+<tbody><tr><td><code>train_pos</code></td> <td>positive training sentences</td></tr>
+<tr><td><code>train_neg</code></td> <td>negative training sentences</td></tr>
+<tr><td><code>test_pos</code></td> <td>positive test sentences</td></tr>
+<tr><td><code>test_neg</code></td> <td>negative test sentences</td></tr>
+</tbody></table>
+<code>train_pos</code> and <code>train_neg</code> together form the training set; <code>test_pos</code> and <code>test_neg</code> together form the test set. All files are one sentence per line, tokenized and lowercased, so you don't have to do any preprocessing.
+</p>
+
+<p>You may write code in any language you choose. It should build and run on <code>student*.cse.nd.edu</code>, but if this is not possible, please discuss it with the instructor before submitting.</p>
+
+<p>In the following, point values are written after each requirement, like this.<span class="rubric">30</span></p>
+
+<ol>
+<li>Implement a naïve Bayes classifier. 
+<ol>
+<li>Write code to read in the training sentences and collect counts $c(k)$ (number of documents in class $k$) and $c(k, w)$ for $k \in \{\mathord+, \mathord-\}$ and all words $w$. Report $c(k)$ and $c(k, w)$ for $k \in \{\mathord+, \mathord-\}$ and $w \in \{\text{movie}, \text{film}\}$.<span class="rubric">1</span></li>
+<li>Write code to compute the probabilities $p(k)$ and $p(w \mid k)$ for all $k,w$. Train on the training set. Report $p(k)$ and $p(w \mid k)$ for $k \in \{\mathord+, \mathord-\}$ and $w \in \{\text{movie}, \text{film}\}$.<span class="rubric">1</span></li>
+<li>Write code to read in a test sentence and compute the probabilities $P(\mathord+ \mid d)$ and $P(\mathord- \mid d)$. Report these two probabilities for the first line of <code>train_pos</code> and the first line of <code>train_neg</code>.<span class="rubric">1</span></li>
+<li>Run the classifier on the test set and report your accuracy,<span class="rubric">2</span> which should be at least 75%.<span class="rubric">3</span></li>
+<li>Describe any implementation choices you had to make (e.g., smoothing, log-probabilities).<span class="rubric">2</span></li>
+</ol>
+</li>
+
+<li>Implement logistic regression.
+<ol>
+<li>Write the rest of the code for the classifier. Report what weight updates you would make (starting from all zero weights) on the first line of <code>train_pos</code>.<span class="rubric">1</span> Now run the trainer on the whole training set. At each iteration, report your accuracy on the <i>training</i> set.<span class="rubric">2</span></li>
+<li>Run the classifier on the test set and report your accuracy,<span class="rubric">2</span> which should be at least 75%.<span class="rubric">3</span></li>
+<li>Describe any implementation choices you had to make (e.g., random shuffling of examples, learning rate, number of iterations, weight averaging).<span class="rubric">2</span></li>
+</ol>
+</li>
+
+<li>Experiment with (at least) two new kinds of features.
+  <ol>
+    <li>Extend the code you wrote to construct a bag of words to include an additional kind of feature besides words. You can try bigrams, prefixes, parts of speech, anything you like. Describe your new features.<span class="rubric">2</span> Report your new accuracy for both naïve Bayes<span class="rubric">1</span> and logistic regression.<span class="rubric">1</span> Briefly write down your conclusions from this experiment.<span class="rubric">1</span></li>
+    <li>Do the same thing for another kind of feature.<span class="rubric">5</span></li>
+  </ol>
+
+</li></ol>
+
+<p>Please submit all of the following in a gzipped tar archive (.tar.gz or .tgz; not .zip or .rar) via Sakai:
+</p><ul>
+<li>A PDF file (not .doc or .docx) with your responses to the instructions/questions above.</li>
+<li>All of the code that you wrote.</li>
+<li>A README file with instructions on how to build and run your code on <code>student*.cse.nd.edu</code>. If this is not possible, please discuss with the instructor before submitting.</li>
+</ul>
+<p></p>
+
+</div>
+
+
+
+</body></html>

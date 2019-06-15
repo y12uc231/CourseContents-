@@ -1,0 +1,66 @@
+body { 
+  font-family: 'Lato', sans-serif;
+  line-height: 1.4;
+  -webkit-text-size-adjust: 100%;
+}
+
+pre, code {
+  font-family: 'Menlo', 'Courier', monospace;
+  font-size: 90%;
+}
+
+div#menu { 
+  position: fixed; left: 0; top: 0; height: 100%; 
+  width: 180px; 
+  background: #336e7b;
+  color: white;
+}
+@media all and (max-width: 720px) {
+  div#menu { position: absolute; height: auto; }
+}
+
+div#menu ul { list-style-type: none; padding: 0; margin: 50px 20px; }
+div#menu li { margin-top: 16px; }
+div#menu a { text-decoration: none; border: none; font-size: 18px; color: inherit; }
+
+div#menu img { display: block; margin: 20px auto; }
+
+div#main { position: absolute; left: 180px; top: 0; margin: 50px; padding-bottom: 50px; overflow: hidden; }
+div#main > :first-child { margin-top: 0; } 
+
+h1, h2, h3 { color: #336e7b; font-weight: bold; }
+h2 { margin-top: 30px; }
+
+dl.info dt { color: #999999; float: left; font-size: inherit; 
+  padding-right: 0.5em;
+}
+dl.info dt.sub { padding-left: 2ex; }
+dl.info dd { color: #336e7b; }
+
+table { border-collapse: collapse; margin: 0 auto; font-weight: inherit; line-height: inherit; }
+table td { border: 2px solid #eeeeee; padding: 5px 5px; }
+table th { padding: 5px 10px; color: #336e7b; }
+td.holiday { text-align: center; background: #eeeeee; }
+tr.total { background: #eeeeee; }
+
+a:link { color: #336e7b; text-decoration: none; border-bottom: 1px dotted; }
+a:visited { color: #336e7b; }
+span.req { font-weight: bold; }
+
+div.loud { text-align: center; /*border: 1px solid #1a4f53;*/ background: #eeeeee; padding: 10px; margin: 0 auto; width: 75%; }
+
+div.phonebuttons {
+  text-align: center;
+  margin-top: 15px;
+}
+
+div.phonebutton {
+  text-align: center;
+  width: 40px; height: 40px;
+  background: white; color: black;
+  display: inline-block;
+  margin: 5px; 
+}
+
+div.phonebutton .letter { font-size: 14px; line-height: 14px; margin-top: 1px; }
+div.phonebutton .number { font-size: 26px; line-height: 24px; }
